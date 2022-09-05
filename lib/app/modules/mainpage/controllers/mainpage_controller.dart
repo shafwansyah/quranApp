@@ -61,6 +61,7 @@ class MainpageController extends GetxController {
     if (prefs.containsKey('last_read')) {
       print("prefs ADA");
       final data = json.decode(prefs.getString('last_read')!);
+      lastReadSurahId.value = data['nomor_surah'];
       lastReadSurah.value = data['nama_surah'];
       lastReadAyat.value = data['nomor_ayat'];
     }

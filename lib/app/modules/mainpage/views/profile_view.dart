@@ -97,7 +97,7 @@ class ProfileView extends GetView<MainpageController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${controller.lastReadSurah.value} : ${controller.lastReadAyat.value}",
+                      "${controller.lastReadSurahId.value}. ${controller.lastReadSurah.value} : ${controller.lastReadAyat.value}",
                       style: TextStyle(
                         fontSize: 18,
                         color: purpleColor,

@@ -142,12 +142,14 @@ class RegisterView extends GetView<RegisterController> {
                             EdgeInsets.symmetric(horizontal: 40, vertical: 17),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30))),
-                    child: Text(
-                      'Register',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: whiteColor),
+                    child: Obx(
+                      () => Text(
+                        controller.isLoading.value ? 'Loading' : 'Register',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: whiteColor),
+                      ),
                     )),
                 SizedBox(height: 20),
               ],
