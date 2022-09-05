@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/app/modules/login/controllers/login_controller.dart';
 import 'package:final_project/app/modules/mainpage/controllers/mainpage_controller.dart';
+import 'package:final_project/app/routes/app_pages.dart';
 import 'package:final_project/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -86,30 +87,37 @@ class ProfileView extends GetView<MainpageController> {
               ],
             ),
             SizedBox(height: 20),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey[300]),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Al-Fatihah : 6",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: purpleColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.chevron_right_outlined,
-                        size: 24,
+            Obx(
+              () => Container(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[300]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "${controller.lastReadSurah.value} : ${controller.lastReadAyat.value}",
+                      style: TextStyle(
+                        fontSize: 18,
                         color: purpleColor,
-                      ))
-                ],
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.DETAIL_SURAH, parameters: {
+                            'nomor_surah': controller.lastReadSurahId.value,
+                          })!
+                              .then((_) => controller.getLastRead());
+                        },
+                        icon: Icon(
+                          Icons.chevron_right_outlined,
+                          size: 24,
+                          color: purpleColor,
+                        ))
+                  ],
+                ),
               ),
             )
           ],

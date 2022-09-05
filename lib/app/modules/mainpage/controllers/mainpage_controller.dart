@@ -21,6 +21,7 @@ class MainpageController extends GetxController {
   String? uid;
   RxInt selectedItem = 0.obs;
   RxBool isLoading = false.obs;
+  RxString lastReadSurahId = "".obs;
   RxString lastReadSurah = "No data".obs;
   RxString lastReadAyat = "No data".obs;
 

@@ -70,11 +70,12 @@ class DetailSurahController extends GetxController {
     isPlaying.value = false;
   }
 
-  void lastRead(String nama, String nomor_ayat) async {
+  void lastRead(String nama, String nomor_ayat, String? nomor_surah) async {
     final prefs = await SharedPreferences.getInstance();
     final data = json.encode({
+      "nomor_surah": nomor_surah,
       "nama_surah": nama,
-      'nomor_ayat': nomor_ayat,
+      "nomor_ayat": nomor_ayat,
     });
     prefs.setString('last_read', data);
     Get.snackbar("Success", "Last read saved succesfully");

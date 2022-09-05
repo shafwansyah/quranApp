@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
   TextEditingController nameC = TextEditingController();
-  TextEditingController emailC = TextEditingController(text: 'test@pengg.com');
-  TextEditingController passC = TextEditingController(text: 'admin123');
+  TextEditingController emailC = TextEditingController();
+  TextEditingController passC = TextEditingController();
 
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;

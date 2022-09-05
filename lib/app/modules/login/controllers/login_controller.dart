@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  TextEditingController emailC = TextEditingController(text: 'test@pengg.com');
-  TextEditingController passC = TextEditingController(text: 'admin123');
+  TextEditingController emailC = TextEditingController();
+  TextEditingController passC = TextEditingController();
   RxBool isShowPassword = true.obs;
 
   FirebaseAuth auth = FirebaseAuth.instance;

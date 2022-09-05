@@ -134,6 +134,8 @@ class DetailSurahView extends GetView<DetailSurahController> {
                           return ListAyatItem(
                             context: context,
                             namaLatin: controller.listAyat.value.namaLatin,
+                            nomorSurah:
+                                controller.listAyat.value.nomor.toString(),
                             ar: controller.listAyat.value.ayat![index].ar,
                             nomor: controller.listAyat.value.ayat![index].nomor
                                 .toString(),
@@ -156,6 +158,7 @@ class DetailSurahView extends GetView<DetailSurahController> {
     String? idn,
     String? con,
     String? namaLatin,
+    String? nomorSurah,
     required BuildContext context,
   }) {
     return SizedBox(
@@ -192,7 +195,8 @@ class DetailSurahView extends GetView<DetailSurahController> {
                       children: [
                         IconButton(
                             onPressed: () {
-                              controller.lastRead(namaLatin!, nomor);
+                              controller.lastRead(
+                                  namaLatin!, nomor, nomorSurah);
                             },
                             icon: Icon(
                               Icons.bookmark_outline,
